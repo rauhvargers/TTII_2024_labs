@@ -233,7 +233,7 @@ class Post extends Model
     }
 }
 ``` 
--File `Comment.php`
+- File `Comment.php`
 ```php
 <?php
 
@@ -264,7 +264,6 @@ class Comment extends Model
 Update the *Laravel installation directory*/Database/seeders/DatabaseSeeder.php file to the following. See how there are different approaches for handling relations, but the result is similar:
 
 ```php
-<?php
 <?php
 
 namespace Database\Seeders;
@@ -323,21 +322,18 @@ class DatabaseSeeder extends Seeder
 ```
 
 
-<div style="background-color:#faefb6;">
+> [!IMPORTANT]
+> ### Task 1
+> Extend the code of database seeder to:
+> - add Javascript and CSS to list of categories
+> - add a new blog post to Javascript and CSS categories
+> - add one comment to the post about Javascript
+> - add 75 spam comments to the post about CSS (you might be interested in creating a comment [factory class](https://laravel.com/docs/11.x/eloquent-factories) to achieve that).
+>  Execute the seeder with the following command (keep in mind that the `:fresh` mode means deleting all current data and re-creating data structures):
+>  ```bat
+>  php artisan migrate:fresh --seed
+>  ```
 
- ### Task 1 
-
-Extend the code of database seeder to:
-- add Javascript and CSS to list of categories
-- add a new blog post to Javascript and CSS categories
-- add one comment to the post about Javascript
-- add 75 spam comments to the post about CSS (you might be interested in creating a comment [factory class](https://laravel.com/docs/11.x/eloquent-factories) to achieve that).
-
-Execute the seeder with the following command (keep in mind that the `:fresh` mode means deleting all current data and re-creating data structures):
-```bat
-php artisan migrate:fresh --seed
-```
-</div>
 ## 3. The web application
 The navigation in Lab3 web application will start from a list of recent blog posts, providing links to display page of each particular item.
 
@@ -617,26 +613,22 @@ A new Blade file `edit.blade.php` needs to be created in *Laravel installation f
 </html>
 
 ```
-<div style="background-color:#faefb6;">
 
- ### Task 2
- Update the `index.blade.php` in *Laravel installation folder*\resources\views\posts to add an `Edit post` button in all rows.
-
- </div>
-
+> [!IMPORTANT]
+> ### Task 2
+> Update the `index.blade.php` in *Laravel installation folder*\resources\views\posts to add an `Edit post` button in all rows.
 
  ### 3.4.4. Creating a new post
- <div style="background-color:#faefb6;">
 
- ### Task 3
- Update the `create()` and `store()` methods of PostController to implement adding a new Post entry. 
-
- - In the `create()` method you will need to load all categories and pass them to the `posts.create` view.
- - In the `store()` method you will first validate if the blog title, body and author lines are not empty. If everything is correct, you can store the data in the database.
-
- After you have saved the data, it is a good practice to redirect the user to the display form of the item.
-
-The Blade form will be similar (but may not be identical) to the edit Blade.
-
-Add a link "Create new blog post" to the `posts/index.blade.php` view, at the top of the page.
- </div>
+> [!IMPORTANT]
+> ### Task 3
+> Update the `create()` and `store()` methods of PostController to implement adding a new Post entry. 
+>
+> - In the `create()` method you will need to load all categories and pass them to the `posts.create` view.
+> - In the `store()` method you will first validate if the blog title, body and author lines are not empty. If everything is correct, you can store the data in the database.
+>
+> After you have saved the data, it is a good practice to redirect the user to the display form of the item.
+>
+> The Blade form will be similar (but may not be identical) to the edit Blade.
+> 
+> Add a link "Create new blog post" to the `posts/index.blade.php` view, at the top of the page.
